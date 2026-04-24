@@ -1,5 +1,21 @@
 ![build and test status](https://github.com/DigitalCommons/mykomap-monolith/actions/workflows/node-build-test.yml/badge.svg)
 
+# LRU
+
+A project by the LondonRentersUnion Data and Research Coworking Group to repurpose the Digital Commons Cooperative Mykomap's project to highlight housing licence data.
+
+## SETUP
+
+The original .README had some perhaps outdated local setup data - you might need WSL if you're on Windows to run bash lines.
+1. npm ci
+2. Duplicate the .env.examples in both the backend and frontend, then rename to .env, remember to insert a MapTiler API key.
+3. npm run build in both backend and frontend
+4. npm run dev in both backend and frontend
+
+Everything past this line is from the original Digital Commons Cooperative .README.
+
+---
+
 # Mykomap Mono-Repo
 
 Mono-repo home to the FE/BE applications and libraries comprising Mykomap.
