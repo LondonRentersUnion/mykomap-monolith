@@ -34,3 +34,9 @@ site
 ResultsPanel copy 2.tsx
 
 bin/do-release.mjs
+
+# LRU data
+
+**/lru-licensing/items
+
+storybook-static
