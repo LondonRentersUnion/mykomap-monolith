@@ -1,7 +1,6 @@
 # The file has to go in the monolithic project root, it's ignored elsewhere
 **/*.gen.[tj]s
 **/*.el
-**/test/data/**
 **/tmp/**
 **/*~
 **/#*
