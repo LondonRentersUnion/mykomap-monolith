@@ -16,19 +16,19 @@ The original .README had some perhaps outdated local setup data - you might need
 Navigate to `localhost:5173/?datasetId=cwm-latest` in the browser to see the map. Replace `cwm-latest` with `powys-eng` or any other dataset name from the `cwm-test-data` repo to see it on the map.
 
 The LRU licensing config data is in `/apps/back-end/test/data/datasets/lru-licensing` to give an idea on how to create your own data folder.
-`
 
 1. cd apps/back-end
    Then run something like:
-   npm run dataset import $CONFIG $CSV $OUTPUT`, e.g.
-npm run dataset import config.json lru-licensing-data.csv lru-licensing
-`Actual data points themselves are not stored in this repo, the config is here in`/apps/back-end/data/datasets/lru-licensing, ask around for them if you're part of LRU.
+2. `npm run dataset import $CONFIG $CSV $OUTPUT` For example:
+   `npm run dataset import config.json lru-licensing-data.csv lru-licensing`
+   Actual data points themselves are not stored in this repo, the config is here in`/apps/back-end/data/datasets/lru-licensing`, ask around for them if you're part of LRU.
 
-Your csv file can't have spaces in vocab fields - i.e. Tower Hamlets -> Tower_Hamlets
+Your csv file can't have spaces in vocab fields - i.e. `Tower Hamlets` becomes `Tower_Hamlets`. This is notable for filtered fields. Read and run the genConfigJson.py in back-end to do this.
 
 ## RUNNING STORYBOOK
 
-Just run the static version.
+Only the static version worked for me.
+TODO - ADD INSTRUCTIONS ON HOW TO GET THIS WORKING.
 
 Everything past this line is from the original Digital Commons Cooperative .README.
 

@@ -1,0 +1,193 @@
+{
+  "prefixes": {
+    "https://example.com/borough": "borough",
+    "https://example.com/lic_type": "lic_type",
+    "https://example.com/man_agent": "man_agent",
+    "https://example.com/lic_holder": "lic_holder"
+  },
+  "languages": ["en"],
+  "ui": {
+    "directory_panel_field": "borough",
+    "marker_property_name": "address",
+    "map": {
+      "mapBounds": [
+        [-0.6, 51.25],
+        [0.35, 51.72]
+      ]
+    }
+  },
+  "vocabs": {
+    "borough": {
+      "en": {
+        "title": "Boroughs",
+        "terms": {
+          "Barking_and_Dagenham": "Barking and Dagenham",
+          "Barnet": "Barnet",
+          "Bexley": "Bexley",
+          "Brent": "Brent",
+          "Bromley": "Bromley",
+          "Camden": "Camden",
+          "Croydon": "Croydon",
+          "Ealing": "Ealing",
+          "Enfield": "Enfield",
+          "Greenwich": "Greenwich",
+          "Hackney": "Hackney",
+          "Hammersmith_and_Fulham": "Hammersmith and Fulham",
+          "Haringey": "Haringey",
+          "Harrow": "Harrow",
+          "Havering": "Havering",
+          "Hillingdon": "Hillingdon",
+          "Hounslow": "Hounslow",
+          "Islington": "Islington",
+          "Kensington_and_Chelsea": "Kensington and Chelsea",
+          "Kingston_upon_Thames": "Kingston upon Thames",
+          "Lambeth": "Lambeth",
+          "Lewisham": "Lewisham",
+          "Merton": "Merton",
+          "Newham": "Newham",
+          "Redbridge": "Redbridge",
+          "Richmond_upon_Thames": "Richmond upon Thames",
+          "Southwark": "Southwark",
+          "Sutton": "Sutton",
+          "Tower_Hamlets": "Tower Hamlets",
+          "Waltham_Forest": "Waltham Forest",
+          "Wandsworth": "Wandsworth",
+          "Westminster": "Westminster",
+          "NA": "NA"
+        }
+      }
+    },
+    "lic_type": {
+      "en": {
+        "title": "License Type",
+        "terms": {
+          "Selective_licence": "Selective Licence",
+          "Mandatory_HMO_licence": "Mandatory HMO Licence",
+          "Additional_HMO_licence": "Additional HMO Licence",
+          "_257_HMO": "257 HMO",
+          "NA": "NA"
+        }
+      }
+    },
+    "ui": {
+      "en": {
+        "title": "Translations",
+        "terms": {
+          "borough": "Borough",
+          "lic_type": "Licence Type",
+          "licence_holder_name": "Licence Holder Name",
+          "licence_start_date": "Licence Start Date",
+          "licence_end_date": "Licence End Date",
+          "lic_holder": "Licence Holder Name",
+          "man_agent": "Managing Agent Name",
+          "managing_agent_address": "Managing Agent Address"
+        }
+      }
+    }
+  },
+  "itemProps": {
+    "id": { "type": "value", "from": "property_id", "strict": true },
+    "address": { "type": "value", "search": true, "from": "address" },
+    "postcode": {
+      "type": "value",
+      "uri": "postcode:",
+      "search": true,
+      "from": "postcode"
+    },
+    "borough": {
+      "type": "vocab",
+      "uri": "borough:",
+      "filter": true,
+      "from": "borough"
+    },
+    "licence_type": {
+      "type": "vocab",
+      "uri": "lic_type:",
+      "titleUri": "ui:lic_type",
+      "from": "licence_type",
+      "filter": true,
+      "nullable": true
+    },
+    "managing_agent_name": {
+      "type": "vocab",
+      "uri": "man_agent:",
+      "from": "managing_agent_name",
+      "filter": true,
+      "nullable": true
+    },
+    "managing_agent_address": {
+      "type": "value",
+      "from": "managing_agent_address",
+      "search": true,
+      "nullable": true
+    },
+    "licence_holder_name": {
+      "type": "vocab",
+      "uri": "lic_holder:",
+      "from": "licence_holder_name",
+      "filter": true,
+      "nullable": true
+    },
+    "licence_start_date": {
+      "type": "value",
+      "from": "licence_start_date",
+      "nullable": true
+    },
+    "licence_end_date": {
+      "type": "value",
+      "from": "licence_end_date",
+      "nullable": true
+    },
+    "lat": {
+      "type": "value",
+      "as": "number",
+      "from": "latitude"
+    },
+    "lng": {
+      "type": "value",
+      "as": "number",
+      "from": "longitude"
+    }
+  },
+  "popup": {
+    "titleProp": "address",
+    "leftPaneWidth": "70%",
+    "leftPane": [
+      {
+        "itemProp": "borough",
+        "valueStyle": "text",
+        "showLabel": true
+      }
+    ],
+    "topRightPane": [
+      { "itemProp": "licence_type", "valueStyle": "text", "showLabel": true },
+      {
+        "itemProp": "licence_holder_name",
+        "valueStyle": "text",
+        "showLabel": true
+      },
+      {
+        "itemProp": "licence_start_date",
+        "valueStyle": "text",
+        "showLabel": true
+      },
+      {
+        "itemProp": "licence_end_date",
+        "valueStyle": "text",
+        "showLabel": true
+      }
+    ],
+    "bottomRightPane": [
+      {
+        "itemProp": "managing_agent_name",
+        "valueStyle": "text",
+        "showLabel": true
+      },
+      {
+        "itemProp": "managing_agent_address",
+        "valueStyle": "text",
+        "showLabel": true
+      }
+    ]
+  }
+}
