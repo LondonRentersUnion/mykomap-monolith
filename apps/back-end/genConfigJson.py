@@ -16,7 +16,7 @@ import re
 
 def editConfigJson(csv_destination, config_destination):
     '''
-    Reads landlord csv and edits the config file to have landlord support
+    Reads landlord csv and edits the config file to have landlord support.
     '''
 
     csv_details = os.path.splitext(csv_destination)
@@ -24,7 +24,7 @@ def editConfigJson(csv_destination, config_destination):
     NEW_CSV_NAME = csv_details[0] + "_edited" + csv_details[1]
     NEW_CONFIG_NAME = config_details[0] + "_edited" + config_details[1]
 
-    with open(csv_destination, newline='') as licence_data, open(config_destination) as config, open(NEW_CSV_NAME, 'w') as new_csv, open(NEW_CONFIG_NAME, 'w') as new_json:
+    with open(csv_destination, newline='', encoding='utf-8') as licence_data, open(config_destination) as config, open(NEW_CSV_NAME, 'w', newline='', encoding='utf-8') as new_csv, open(NEW_CONFIG_NAME, 'w') as new_json:
         licence_data_reader = csv.reader(
             licence_data)
         licence_data_writer = csv.writer(
