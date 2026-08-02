@@ -71,7 +71,7 @@
     },
     "ui": {
       "en": {
-        "title": "Translations",
+        "title": "User Interface labels",
         "terms": {
           "borough": "Borough",
           "lic_type": "Licence Type",
@@ -80,7 +80,21 @@
           "licence_end_date": "Licence End Date",
           "lic_holder": "Licence Holder Name",
           "man_agent": "Managing Agent Name",
-          "managing_agent_address": "Managing Agent Address"
+          "managing_agent_address": "Managing Agent Address",
+          "directory": "Directory",
+          "matching_results_zero": "No matching results",
+          "matching_results_one": "{{count}} matching result",
+          "matching_results_other": "{{count}} matching results",
+          "directory_entries_zero": "No directory entries",
+          "directory_entries_one": "{{count}} directory entry",
+          "directory_entries_other": "{{count}} directory entries",
+          "search": "Search",
+          "clear_search": "Clear Search",
+          "any": "Any",
+          "map": "Map",
+          "about": "About",
+          "apply_filters": "Apply Filters",
+          "no_location_available": "No location data available"
         }
       }
     }
