@@ -37,6 +37,6 @@ bin/do-release.mjs
 
 # LRU data
 
-**/lru-licensing/items
+**/datasets/**
 
 storybook-static
