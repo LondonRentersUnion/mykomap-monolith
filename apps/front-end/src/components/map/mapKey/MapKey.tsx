@@ -17,17 +17,30 @@ import {
 } from "../../../app/configSlice";
 import { getMarkerLabelsByIconIndex } from "./getMarkerLabelsByIconIndex";
 import { useTranslation } from "react-i18next";
+import { resolveAssetUrl } from "../../../utils/window-utils";
+
+// Marker references in customMarkers.markerIcons may be bundled names
+// ("dotcoop", "default"), full URLs, or `dataset:` paths. For URL-like
+// values, get the translation-lookup key from the file basename so that
+// ".../dotcoop.png" still finds "dotcoopMarkerLabel"
+const isUrlLikeMarker = (name: string) =>
+  name.startsWith("dataset:") || /^(https?:)?\/\//.test(name);
+
+const markerLookupKey = (name: string): string =>
+  isUrlLikeMarker(name)
+    ? (name.split("/").pop()?.replace(/\.[^.]+$/, "") ?? name)
+    : name;
+
+const markerIconSrc = (name: string): string | undefined =>
+  isUrlLikeMarker(name)
+    ? resolveAssetUrl(name)
+    : `./assets/markers/${name}.png`;
 
 type MapKeyEntry = {
   id: string;
   label: string;
   iconSrc?: string;
   colour?: string;
-};
-
-// Client-specific display label overrides for map key entries.
-const mapKeyLabelOverrides: Record<string, string> = {
-  DotCooperation: ".coop verified",
 };
 
 const StyledMapKeyContainer = styled(Box)(() => ({
@@ -149,6 +162,7 @@ const MapKeyItem = ({
 const MapKey = () => {
   const mapKeyOpen = useAppSelector(selectIsMapKeyOpen);
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   const markerIcons = useAppSelector(selectMarkerIcons);
   const customMarkers = useAppSelector(selectCustomMarkers);
@@ -173,22 +187,23 @@ const MapKey = () => {
   });
 
   // Keep the original icon index so it stays aligned with termsToIconIndex derived labels.
-  // Also exclude the default marker from the key.
+  // The default marker can have a key - CWM provides one, Powys doesn't
+  // Names come from ui vocan with <iconName>MarkerLabel
   const entries: MapKeyEntry[] = markerIcons.flatMap(
     (iconName: string, iconIndex: number) => {
-      if (iconName === "default") {
-        return [];
+      const lookupKey = markerLookupKey(iconName);
+      const overrideLabel = t(`${lookupKey}MarkerLabel`, { defaultValue: "" });
+      const iconSrc = markerIconSrc(iconName);
+
+      if (lookupKey === "default") {
+        if (!overrideLabel) return [];
+        return [{ id: `m${iconIndex}`, label: overrideLabel, iconSrc }];
       }
 
-      const label = markerLabelsByIconIndex[iconIndex] ?? iconName;
+      const label =
+        overrideLabel || markerLabelsByIconIndex[iconIndex] || lookupKey;
 
-      return [
-        {
-          id: `m${iconIndex}`,
-          label: mapKeyLabelOverrides[label] ?? label,
-          iconSrc: `./assets/markers/${iconName}.png`,
-        },
-      ];
+      return [{ id: `m${iconIndex}`, label, iconSrc }];
     },
   );
 
