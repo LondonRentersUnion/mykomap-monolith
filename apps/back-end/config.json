@@ -1,9 +1,10 @@
 {
   "prefixes": {
     "https://example.com/borough": "borough",
-    "https://example.com/lic_type": "lic_type",
-    "https://example.com/man_agent": "man_agent",
-    "https://example.com/lic_holder": "lic_holder"
+    "https://example.com/lt": "lt",
+    "https://example.com/man": "ma",
+    "https://example.com/lh": "lh",
+    "https://example.com/ui": "ui"
   },
   "languages": ["en"],
   "ui": {
@@ -57,7 +58,7 @@
         }
       }
     },
-    "lic_type": {
+    "lt": {
       "en": {
         "title": "License Type",
         "terms": {
@@ -74,12 +75,11 @@
         "title": "User Interface labels",
         "terms": {
           "borough": "Borough",
-          "lic_type": "Licence Type",
+          "licence_type": "Licence Type",
           "licence_holder_name": "Licence Holder Name",
           "licence_start_date": "Licence Start Date",
           "licence_end_date": "Licence End Date",
-          "lic_holder": "Licence Holder Name",
-          "man_agent": "Managing Agent Name",
+          "managing_agent_name": "Managing Agent Name",
           "managing_agent_address": "Managing Agent Address",
           "directory": "Directory",
           "matching_results_zero": "No matching results",
@@ -116,15 +116,16 @@
     },
     "licence_type": {
       "type": "vocab",
-      "uri": "lic_type:",
-      "titleUri": "ui:lic_type",
+      "uri": "lt:",
+      "titleUri": "ui:licence_type",
       "from": "licence_type",
       "filter": true,
       "nullable": true
     },
     "managing_agent_name": {
       "type": "vocab",
-      "uri": "man_agent:",
+      "uri": "man:",
+      "titleUri": "ui:managing_agent_name",
       "from": "managing_agent_name",
       "filter": true,
       "nullable": true
@@ -137,7 +138,8 @@
     },
     "licence_holder_name": {
       "type": "vocab",
-      "uri": "lic_holder:",
+      "uri": "lhn:",
+      "titleUri": "ui:licence_holder_name",
       "from": "licence_holder_name",
       "filter": true,
       "nullable": true

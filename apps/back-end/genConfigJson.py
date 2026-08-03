@@ -82,12 +82,12 @@ def editConfigJson(csv_destination, config_destination):
         config = json.load(config)
 
         # TODO Probably a cleaner way to do this?
-        lic_holder_dict = {"lic_holder": {
-            "en": {"title": "Licence Holder"}}}
-        lic_holder_dict['lic_holder']['en']['terms'] = unique_licence_holders
-        man_agent_dict = {"man_agent": {
-            "en": {"title": "Managing Agent"}}}
-        man_agent_dict['man_agent']['en']['terms'] = unique_managing_agents
+        lic_holder_dict = {"lhn": {
+            "en": {"title": "Licence Holder Name"}}}
+        lic_holder_dict['lhn']['en']['terms'] = unique_licence_holders
+        man_agent_dict = {"man": {
+            "en": {"title": "Managing Agent Name"}}}
+        man_agent_dict['man']['en']['terms'] = unique_managing_agents
         config['vocabs'].update(lic_holder_dict)
         config['vocabs'].update(man_agent_dict)
 
